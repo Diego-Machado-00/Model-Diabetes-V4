@@ -11,21 +11,21 @@ def home():
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    age = request.form.get("Age")
-    sex = request.form.get("Sex")
-    physActivity = request.form.get("PhysActivity")
-    fruits = request.form.get("Fruits")
-    veggies = request.form.get("Veggies")
-    hvyAlcoholConsump = request.form.get("HvyAlcoholConsump")
-    smoker = request.form.get("Smoker")
-    highBP = request.form.get("HighBP")
-    highChol = request.form.get("HighChol")
-    bMI = request.form.get("BMI")
-    genHlth = request.form.get("GenHlth")
-    physHlthad = request.form.get("PhysHlth")
-    diffWalk = request.form.get("DiffWalk")
-    heartDiseaseorAttack = request.form.get("HeartDiseaseorAttack")
-    arr = np.array([[age, sex, physActivity, fruits, veggies, hvyAlcoholConsump, smoker, highBP, highChol, bMI, genHlth, physHlthad, diffWalk, heartDiseaseorAttack]])
+    age = request.form['Age']
+    sex = request.form['Sex']
+    physActivity = request.form['PhysActivity']
+    fruits = request.form['Fruits']
+    veggies = request.form['Veggies']
+    hvyAlcoholConsump = request.form['HvyAlcoholConsump']
+    smoker = request.form['Smoker']
+    highBP = request.form['HighBP']
+    highChol = request.form['HighChol']
+    bMI = request.form['BMI']
+    genHlth = request.form['GenHlth']
+    physHlthad = request.form['PhysHlth']
+    diffWalk = request.form['DiffWalk']
+    heartDiseaseorAttack = request.form['HeartDiseaseorAttack']
+    arr = np.array([[age, sex, physActivity, fruits, veggies, hvyAlcoholConsump, smoker, highBP, highChol, bMI, genHlth, physHlthad, diffWalk, heartDiseaseorAttack]], dtype=np.float64)
     pred = model.predict(arr)
     return render_template("index.html", predictions = pred)
 
