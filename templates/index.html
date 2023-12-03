@@ -172,7 +172,7 @@
             </h3>
         {% endif %}
       </di> 
-      <form method="post" action="/predict">
+      <form method="POST" action="{{url_for('predict')}}">
         <div class="form-row">
             <div class="input-data">
                <input type="number" name= "Age" required>
